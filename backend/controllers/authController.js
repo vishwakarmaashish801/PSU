@@ -1,5 +1,8 @@
 const db = require("../config/db");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const secretKey = process.env.SECRET_KEY;
 //Registration logic 
 
 const registerUser = async (req, res) => {
@@ -28,16 +31,17 @@ const registerUser = async (req, res) => {
         }
 
         //SQL query to insert the user data tot the psu_users table
-        const query = "INSERT INTO psu_users (name, user_id, phone, email, password) VALUES (?, ?, ?, ?, ?)"
+        const query =
+          "INSERT INTO psu_users (name, user_id, phone, email,  password) VALUES (?, ?, ?, ?, ?)";
 
         //execute the query
         db.query(
             query,
-            [
+            [   
                 name,
                 userId,
-                email,
                 phone,
+                email,
                 hashedPassword
 
             ],
@@ -57,6 +61,54 @@ const registerUser = async (req, res) => {
 }
 
 
+// user login logic 
+const loginUser = async (req, res) => {
+    const { email , password } = req.body;
+    console.log(email);
+    console.log(password); 
+
+    try{
+        // check if the user exists
+        const query = "SELECT * FROM  psu_users  WHERE email = ?";
+        const [rows] = await db.promise().query(query, [email]);
+
+        if(rows.length === 0) {
+            return res.status(404).json({message: "No User found with this credentials!"});
+        }
+
+        const user = rows[0];
+
+               
+        //Compare Passwords 
+        const isMatch = await bcrypt.compare(password , user.password);
+        console.log(isMatch) 
+        console.log(user.password);  
+        if(!isMatch){
+                return res.status(404).json({message: 'Invalid Password'});
+        }
+
+        //Generate the JWT token for the user 
+        const token = jwt.sign(
+            {
+                userId: user.user_id, email:user.email
+            },
+            secretKey,
+            
+        );
+        res.status(200).json({
+            message: "User logged in successfully",
+            token,
+            user:{userId: user.user_id, name: user.name, email: user.email, phone: user.phone}
+        });
+    } catch (error) {
+         console.error("Error logging in:", error);
+         res.status(500).json({ error: "Internal server error" });
+    }
+}
+
+
+
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 }
