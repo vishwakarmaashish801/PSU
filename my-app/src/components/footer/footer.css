@@ -1,0 +1,93 @@
+body{
+    font-family: Arial;
+   
+    /* background-image: url(https://onemind.ollato.com/public/images/ollato-bg-img-2.png);
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: contain; */
+}
+
+
+.header,.footer{
+    background-color: #ede6e2;
+    
+}
+
+.form-box{
+    width: fit-content;
+    padding: 12px;
+    margin: auto;
+}
+
+.footer{
+    padding: 20px 45px 4px 40px;
+    margin: auto;
+    color: #dc3545!important;
+    font-weight: bold;
+   
+}
+
+.footer-right {
+    text-align: end;
+    color: #dc3545!important;
+   
+
+   
+    
+}
+
+/* media query */
+@media only screen and (max-width: 400px) {
+
+    .index-log{
+          margin-top: -65px;
+    }
+    .logo-text{
+      display: none;
+    }
+    .img{
+      display: none;
+    }
+    .company-detail{
+      margin-right: 0px;
+    }
+
+    .text-end {
+      text-align: center !important;
+    }
+    p-5{
+      padding:1px 0 1px  !important;
+    }
+    
+    .btn {
+      background-color: #644537;
+      padding: 10px 40px;
+      color: #fff;
+  }
+  .p-5 {
+    padding: 3rem 0px!important;
+}
+  .mob{
+     display: none;
+  }
+  
+  .form-box{
+    background-color: #644537;
+  }
+
+
+ .footer{
+    padding: 24px;
+    font-size: 13px;
+ }   
+
+ .footer-right {
+    text-align: left;
+    margin-top: -40px;
+}
+
+   
+  }
+  
