@@ -23,8 +23,8 @@ function header() {
 <div className="header-right col-md-6 p-2">
 
 <div className="right-box">
-<p className="fw-bold" style={{fontSize:25}}>PSU - Upper Level Management</p>
-<p className="sub-title ">Empowering Minds Transforming Careers </p>
+<p className="fw-bold" style={{fontSize:25}}>MIND MAPPING PROGRAM</p>
+<p className="sub-title ">For Public Sector Undertaking (PSU)</p>
 </div>
 
 
