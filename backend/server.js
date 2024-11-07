@@ -19,8 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true })); // Parses URL-encoded data
 // importing the routes
 const testRoutes = require("./routes/testRoutes");
 
+//importing the auth routes
+const authRoutes = require("./routes/authRoutes");
+
 // using the routes 
 app.use("/api", testRoutes);
+
+//using the auth routes
+app.use("/api", authRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
