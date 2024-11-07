@@ -24,7 +24,7 @@ function header() {
 
 <div className="right-box">
 <p className="fw-bold" style={{fontSize:25}}>MIND MAPPING PROGRAM</p>
-<p className="sub-title ">For Public Sector Undertaking</p>
+<p className="sub-title ">For Public Sector Undertaking (PSU)</p>
 </div>
 
 
