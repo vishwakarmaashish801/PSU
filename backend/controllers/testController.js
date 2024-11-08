@@ -1,6 +1,7 @@
 const db = require("../config/db");
 
 const getAllQuestions = (req, res) => {
+ 
   const query = "SELECT * FROM psu_questions";
   db.query(query, (err, results) => {
     if (err) {
