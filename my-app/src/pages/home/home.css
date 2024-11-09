@@ -6,7 +6,12 @@ background-repeat: no-repeat;
 background-position: center center;
 background-attachment: fixed;
 background-size: contain;
-   
+
+.container-fluid{
+  background-color: yellow;
+  padding-left: 0;
+  padding-right: 0;
+}
     
 }
 .form-box {

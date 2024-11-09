@@ -20,7 +20,7 @@ body{
 .header-right{ color: #644537;}
 
 .company-title{ 
-    font-size: 15px;
+    font-size: 20px;
     color: #644537;
     margin-top: 12px;
     font-weight: bold;
@@ -38,10 +38,34 @@ hr:not([size]) {
 }
 
 .sub-title{
-    font-size: 10px;
+    font-size: 11px;
     margin-top: -16px;
     font-weight: bold;
 }
+
+.sub-title-right{
+  font-size: 15px;
+    margin-top: -21px;
+    font-weight: bold;
+    color: green;
+    animation: blink 1s ease-in infinite;
+    margin-left: 30px;
+}
+
+@keyframes blink {
+  
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
 
 
 

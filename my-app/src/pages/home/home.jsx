@@ -2,10 +2,13 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import  Header  from "../../components/header/header.jsx";
+import  Footer  from "../../components/footer/footer.jsx";
+
 import './home.css';
+
 
 
 
@@ -22,8 +25,10 @@ function Home() {
    
 
   
-    <div className="main bg-danger"> 
-
+    <div className="container-fluids main bg-danger"> 
+  
+    <Header />
+ 
 
 <div className="row">
 
@@ -197,7 +202,7 @@ function Home() {
 {/* main */}
                  
 
-
+<Footer />
 
     
 

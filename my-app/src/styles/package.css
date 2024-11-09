@@ -1,0 +1,336 @@
+
+  /*general  instruction single page*/
+  .headers-title{font-weight: 700;
+    color: #4e73df;
+    font-size:25px;
+   }
+   
+   .card-bullet{
+     width: 194px;
+     padding: 2px 22px;
+     margin-top: 12px;
+   }
+   
+   .card-bullet div a{width: max-content};
+   
+   
+   
+   
+   .package-card ul {
+     list-style-type: none; /* Remove default bullet points */
+     padding-left: 0; /* Remove default padding */
+   }
+   
+   .package-card ul li {
+     margin-bottom: 5px; /* Adjust as needed */
+     padding-left: 1.5em; /* Adjust as needed */
+     position: relative;
+     color: black;
+     list-style: none;
+     margin-left: -35px;
+   }
+   
+   .package-card ul li::before {
+     content: "";
+     display: block;
+     width: 10px; /* Diameter of the circle */
+     height: 10px; /* Diameter of the circle */
+     border-radius: 50%; /* Shape the bullet point into a circle */
+     background-color: #402670; /* Color of the bullet point */
+     position: absolute;
+     left: 0;
+     top: 50%;
+     transform: translateY(-50%);
+   }
+     
+   .package-card ul li:nth-child(1)::before {
+     background-color: #ff9800;
+   }
+   
+   .package-card ul li:nth-child(2)::before {
+     background-color: #004eff;
+   }
+   
+   
+   .package-card ul li:nth-child(3)::before {
+     background-color: red;
+   }
+   
+   
+   .discount-container{
+     /* height:40px; */
+     padding: 0px 0px;align-items: center;font-size:15px;font-weight:bold;
+   }
+
+   .form-control-coupon{
+    border: 1px solid #03a3bd !important;
+   }
+   
+   .form-control-coupon input::placeholder {
+    color: #da2424; /* Change this color as needed */
+}
+    
+     .btn-package {
+       font: inherit;
+       border: 0;
+       outline: 0;
+       padding: 0.5em 1em;
+       cursor: pointer;
+       position: relative;
+       background-color:#644537;
+       color: #fff;
+       text-transform: uppercase;
+       font-size:12px;
+       border-radius: 4px;
+       transition: transform 0.2s, opacity 0.2s;
+   
+     }
+     .btn-package a,.btn-package:hover {
+       color:black;
+       text-decoration: none;
+       font-weight: bold;
+     }
+   
+    
+     .topay-box {height: 50px;padding: 0px 0px;align-items: center;box-shadow: 2px 2px 6px indianred;border-radius: 5px;margin-top: 50px;
+   }
+   
+   .package-container{
+     /* padding:30px 30px; */
+     padding: 10px 30px;
+   }
+   
+   .card-deck .package-card {
+     margin-bottom: .75rem;
+     /* background: red; */
+     padding: 12px;
+     box-shadow: 2px 3px 5px 4px #03a3bd;
+   }
+   
+     .package-card {
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       min-width: 0;
+       word-wrap: break-word;
+       /* background-color: #fff; */
+       background-clip: border-box;
+       border: 1px solid #e3e6f0;
+       border-radius: .35rem;
+       background: antiquewhite;
+       
+       }
+   
+       .basic,.advance,.premium{
+         margin-top: -77px;margin-bottom: 46px;
+         }
+     
+       .package-card .card-title{font-weight: bold;
+        text-align: center;
+        color: #5a5c69 !important;
+        background: #03a3bd57;}
+     
+       .package-card:nth-child(1) {
+         background-color: #faf7f724; /* Background color for the first paragraph */
+       
+       }
+   
+       .package-card:nth-child(2) {
+         background-color: #fff; /* Background color for the first paragraph */
+       color:#402670;
+       }
+   
+       .package-card:nth-child(3) {
+         background-color: #fff; /* Background color for the first paragraph */
+       }
+   
+   .card-deck .package-card .inner-card{
+     background: white;
+   padding: 13px 10px;
+   /* border: 1px solid #e3e6f0; */
+   border-radius: 10px;
+   }
+   
+   .card-deck .package-card .inner-card .payment-box{
+     /* box-shadow: 2px 2px 6px indianred; */
+     border-radius: 5px;
+     /* margin-top: 50px; */
+     height: 60px;
+     align-items: center;
+   
+   }
+   .btn-student-payment{font-weight:bolder;color:#03A3BD;border: 1px solid;}
+
+   .btn-student-payment:hover{
+    background:#03A3BD;
+    color:white;
+    transition: 0.5s;
+   }
+   
+   /* single booking couseliing */
+   .single-couseling-box{
+     display: flex;
+     box-shadow: 2px 3px 5px 4px #63483e;
+     align-items: center;
+     border-radius: 12px;
+     padding-right: 7px;
+     margin: 13px;
+     
+   }
+   
+   .single-counselling-amount{
+     font-weight: 800;
+     padding: 0px 5px;
+    
+     margin-top: 15px;
+     text-align: end;
+   }
+   
+   .single-couseling-box .book-session-btn{ 
+     padding: 3px 3px;
+     font-size: large;
+     font-weight: 800;
+     width: 189px;
+   }
+   
+   .card-bullet .card-title {   
+      /* padding: 14px 16px 3px; */
+     font-size: 14px;
+     font-weight: 800;
+   }
+
+   [data-mesh-id=comp-lvmbh56kinlineContent-gridContainer] {
+    position: static;
+    display: grid;
+    height: auto;
+    width: 100%;
+    min-height: auto;
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 100%;
+}
+   
+   
+   
+   @media only screen and (min-width: 1201px) {
+   
+     .card-deck .package-card {
+       flex: 1 0 0%;
+       margin: 15px;
+           
+     }
+   }
+   
+   
+   @media only screen and (min-width: 576px) and (max-width: 1200px) {
+     /* CSS rules for screens between 425px and 768px wide */
+   
+       .card-deck .package-card {
+         margin: 12px;
+        width: 45%;
+         /* background-color: yellow; */
+   
+     }
+   
+   }
+   
+   @media only screen and (max-width: 776px) {
+   
+     .card-deck .package-card {
+       margin: 12px;
+       width: 100%;
+       margin-top: 86px;
+     }
+   
+     .card-deck .package-card .inner-card .payment-box {
+       margin-top: 60px;
+   }
+   
+   .discount-container {
+     padding: 38px 0px;
+   }
+   
+   .d-flex {
+     display: flex !important;
+     flex-direction: column;
+   }
+   
+   
+   
+   }
+   
+   
+   
+    
+   @media only screen and (max-width: 425px) {
+       .btn-package {
+        font-size: 9px;
+     }
+   
+     h5{font-size: 1.1rem;}
+   
+     
+       .package-container {
+         padding: 16px 0px;
+         margin-right: 33px;
+     }
+   
+     .message-error{
+       margin-top: 55px;
+     }
+     
+     .d-flex {
+       display: flex !important;
+       flex-direction: column;
+   }
+   
+   .basic,.advance,.premium{
+     margin-top: -77px;margin-bottom: 46px;
+     }
+   
+   .card-bullet {
+     width: auto;
+     /* padding: 0 10px; */
+   }
+   
+     .package-container h5 {font-size: smaller;}
+   
+     .card-deck .card .inner-card .payment-box {
+       margin-top: 60px;
+   }
+   
+     
+   }
+     @media only screen and (max-width: 768px) {
+   
+       .totay{margin-top:160px;}
+   
+       .col-md-7 {
+         padding-right: 0rem!important; 
+         padding-left: 0rem !important; 
+     }
+   
+     .input-group-append{
+       margin-left: 0;
+      margin-top: 12px;
+   }
+      
+   .card-deck .card {
+     flex: auto;
+     margin-right: .75rem;
+     margin-bottom: 0;
+     margin-left: .75rem;
+     background: red;
+   }
+   .card-deck .card .inner-card .payment-box{
+     margin-top: 50px; 
+    }
+   
+    
+   /* .card {
+     width: calc(50% - 20px); /* Two cards per row on smaller screens */
+   } 
+   
+   
+      
+     
+     
