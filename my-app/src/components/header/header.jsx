@@ -1,5 +1,7 @@
 
 import './header.css';
+
+
 function header() {
 
   return (
@@ -17,6 +19,7 @@ function header() {
  <p className="company-title mx-2">OLLATO EDUVERSITY</p>
  <hr className="hr-header mx-2" />
  <p className="sub-title mx-2">Empowering Minds Transforming Careers </p>
+
  </div>
 </div>
 

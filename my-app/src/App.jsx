@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/header/header.jsx";
-import Home from "./pages/home/home.jsx";
-import Footer from "./components/footer/footer.jsx";
-import MainContent from './pages/content.jsx';
 
-import NotFound from './pages/NotFound';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Package from './pages/Package.jsx';
+import SideNavbar from './pages/sideNavbar.jsx';
+import TopNavbar from './pages/topNavbar.jsx';
+import Dashboard from './pages/dashboard.jsx';
+import Home from './pages/home/home.jsx';
+import BasicExample from './Login.jsx';
+
 
 
 function App() {
@@ -15,34 +17,47 @@ function App() {
   return (
     <>
       <Router>
-
-   
-    
-      
-
       {/* Define Routes */}
-      <Routes>
+       
+      <div id="wrapper">
+        <div className="sideNavbar-box">
+          <SideNavbar />
+        </div>
+
+        <div id="content-wrapper" className="d-flex flex-column">
+        <div id="content">
+
+        <TopNavbar />
+
+        <div className="container-fluid">
+              {/* Actual content start */}
+              <div className="row">
+              <div className="col-xl-12 col-lg-7">
+
+        <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        
+        <Route path="/" element={<BasicExample/>} />
+        
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/package" element={<Package />} />
+
       
-        <Route path="/" element={
-           <>
-          <Header />
-          <Home />
-          <Footer />
-          </>
-          } />
-
-          
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-        <Route path="/dashboard" element={<MainContent />} />
-
-         {/* 404 Route */}
-         <Route path="*" element={
-          <><Header/> <NotFound /> <Footer/> </>} />
+        
       
         </Routes>
 
-   
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+
      </Router>
+    
     </>
   );
 }

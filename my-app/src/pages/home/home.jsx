@@ -10,7 +10,7 @@ import './home.css';
 
 
 
-function Main() {
+function Home() {
 
     const [name, setName] = useState("");
     console.log(name);
@@ -206,4 +206,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;

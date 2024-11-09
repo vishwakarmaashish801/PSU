@@ -41,6 +41,7 @@ function BasicExample() {
 <div className='text-center my-2'>
 <h5>PSU LOGIN</h5>
 <h6>Upper Level Management</h6>
+<i class="fa-brands fa-whatsapp"></i>
 </div>
 
 <div className="form-conatiner p-2 m-auto ">

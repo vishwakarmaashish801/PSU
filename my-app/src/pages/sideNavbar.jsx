@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
+
 // Import your CSS file for styling
+import { LuLayoutDashboard } from "react-icons/lu";
+import { TbPackages } from "react-icons/tb";
+import { MdAssessment } from "react-icons/md";
+import { IoMdDownload } from "react-icons/io";
+import { SiSession } from "react-icons/si";
+import { LuActivitySquare } from "react-icons/lu";
+import { MdLibraryBooks } from "react-icons/md";
+import { AiOutlineSetting } from "react-icons/ai";
 
 
 
@@ -20,8 +29,8 @@ const Sidebar = () => {
             {/* Nav Item - Dashboard */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/dashboard">
-                    <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span className="text-center">Dashboard</span><br />
+                <LuLayoutDashboard />
+                     <span className="text-center"> Dashboard</span><br />
                     <span>Ashish Vishwakarma.</span>
                 </Link>
             </li>
@@ -33,50 +42,43 @@ const Sidebar = () => {
                 {/* Nav Items */}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/package">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Packages</span>
+                    <span><TbPackages /> Packages</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/language">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Assessment</span>
+                        <span><MdAssessment /> Assessment</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/summary">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Download Summary</span>
+                        <span><IoMdDownload /> Download Summary</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/report-session">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Report</span>
+                       
+                        <span> <IoMdDownload /> Report</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/book-session">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Book Session</span>
+                        <span><SiSession /> Book Session</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/session-management">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Session Management</span>
+                        <span><MdLibraryBooks /> Session Management</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/virtualcounselling">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>My Activity</span>
+                    <Link className="nav-link" to="/virtualcounselling">         
+                        <span><LuActivitySquare /> My Activity</span>
                     </Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/settings">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Settings</span>
+                        <span><AiOutlineSetting /> Settings</span>
                     </Link>
                 </li>
             </div>
