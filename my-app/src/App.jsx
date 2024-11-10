@@ -6,6 +6,15 @@ import SideNavbar from './pages/sideNavbar.jsx';
 import TopNavbar from './pages/topNavbar.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import Home from './pages/home/home.jsx';
+import Language from './pages/language.jsx';
+import Instruction from './pages/Instruction.jsx';
+import Setting from './pages/Setting.jsx';
+import Report from './pages/Report.jsx';
+import Summary from './pages/Summary.jsx';
+import BookSession from './pages/BookSession.jsx';
+import SessionManagement from './pages/SessionManagement.jsx';
+import Virtualcounselling from './pages/Virtualcounselling.jsx';
+
 
 
 
@@ -20,6 +29,7 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const isRootPath = location.pathname === '/';
+ 
 
   return (
     <div id="wrapper">
@@ -44,7 +54,18 @@ function AppContent() {
                   <Route path="/" element={<Home/>} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/package" element={<Package />} />
-                </Routes>
+                  <Route path="/language" element={<Language />} />
+                  <Route path="/instruction" element={<Instruction/>} />
+                  <Route path="/setting" element={<Setting/>} />
+                  <Route path="/report-session" element={<Report/>} />
+                  <Route path="/summary" element={<Summary/>} />
+                  <Route path="/book-session" element={<BookSession/>} />
+                  <Route path="/session-management" element={<SessionManagement/>} />
+                  <Route path="/virtualcounselling" element={<Virtualcounselling/>} />
+               
+                  
+                 
+                </Routes> 
               </div>
             </div>
           </div>

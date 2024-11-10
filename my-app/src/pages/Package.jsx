@@ -18,10 +18,10 @@ const packagePage = () => {
     <div className="MainContentDynamic p-3">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1>Package</h1>
+    <h2>Package</h2>
    </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 ">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Package </h6>
         </div>
@@ -45,7 +45,7 @@ const packagePage = () => {
       <div style={{marginLeft:136,position:'absolute',fontSize:12}}> (<span className="discount">20</span>% Discount.) </div>
       <span style={{marginTop: -7,marginLeft: 12}} class="">
       <span style={{color:'#03A3BD'}} class="wixui-rich-text__text">
-      <span style={{fontSize:36,fontWeight:'bolder'}} className="wixui-rich-text__text">₹6000 </span>
+      <span style={{fontSize:36,fontWeight:'bolder'}} className="wixui-rich-text__text">₹3000 </span>
       </span>
       </span>
 
@@ -88,13 +88,6 @@ const packagePage = () => {
 
     <hr />
 
-    <div className="text-center">
-        <span className="fw-bold text-center" style={{ fontSize: '20px', fontWeight: 'bold', color: '#5a5c69' }}>
-          + 18% GST.
-        </span>
-      </div>
-
-
     <form method="post" onSubmit={handleSubmit} id="firstpackageForm">
       <div className="row text-center mb-3" style={{ height: '50px', padding: '0px 0px', alignItems: 'center' }}>
         
@@ -109,8 +102,6 @@ const packagePage = () => {
         </div>
 
 
-        
-        
         <div className="col-md-2 card-text input-group-append">
           <span className="fw-bold">
             <button
@@ -161,7 +152,7 @@ const packagePage = () => {
             
             }}
           >
-            <span className="topay1">&#x20b9;4545</span>
+            <span className="topay1">&#x20b9;3000</span>
           </span>
         </div>
         
@@ -169,13 +160,13 @@ const packagePage = () => {
     </div>                                     
 
         </Card.Text>
-        <div className="text-center payment-btn btn btn-primary w-100">
+        <div className="text-center payment-btn btn w-100" style={{ background: '#03A3BD', color: '#fff',border:'#fff' }}>
       <button 
         className="btn btn-block btn-student-payment" 
         type="submit" 
       
       >
-        <span>Get Started Now</span>
+        <span style={{ background: '#03A3BD', color: '#fff',border:'#fff' }}>Get Started Now</span>
       </button>
     </div>
       </Card.Body>
@@ -183,8 +174,9 @@ const packagePage = () => {
       </div>
 
 
-      {/* second */}
-       {/* first Card */}
+      {/* =========================  second Advance  =======================================*/}
+
+  
        <div className="col-md-4 my-3">
       <Card className='shadow'>
       
@@ -243,12 +235,7 @@ const packagePage = () => {
 
     <hr />
 
-    <div className="text-center">
-        <span className="fw-bold text-center" style={{ fontSize: '20px', fontWeight: 'bold', color: '#5a5c69' }}>
-          + 18% GST.
-        </span>
-      </div>
-
+    {/*  */}
 
     <form method="post" onSubmit={handleSubmit} id="firstpackageForm">
       <div className="row text-center mb-3" style={{ height: '50px', padding: '0px 0px', alignItems: 'center' }}>
@@ -316,7 +303,7 @@ const packagePage = () => {
             
             }}
           >
-            <span className="topay1">&#x20b9;4545</span>
+            <span className="topay1"   style={{color: '#644537' }}>&#x20b9;4000</span>
           </span>
         </div>
         
@@ -324,13 +311,13 @@ const packagePage = () => {
     </div>                                     
 
         </Card.Text>
-        <div className="text-center payment-btn btn btn-primary w-100">
+        <div className="text-center payment-btn btn  w-100" style={{ background: '#03A3BD', color: '#fff',border:'#fff' }}>
       <button 
         className="btn btn-block btn-student-payment" 
         type="submit" 
       
       >
-        <span>Get Started Now</span>
+        <span style={{ background: '#03A3BD', color: '#fff',border:'#fff' }}>Get Started Now</span>
       </button>
     </div>
       </Card.Body>
@@ -338,8 +325,9 @@ const packagePage = () => {
       </div>
 
 
-      {/* third */}
-       {/* first Card */}
+      {/* =======================  third  Premium Package =========================================*/}
+
+     
        <div className="col-md-4 my-3">
       <Card className='shadow'>
       
@@ -398,13 +386,6 @@ const packagePage = () => {
 
     <hr />
 
-    <div className="text-center">
-        <span className="fw-bold text-center" style={{ fontSize: '20px', fontWeight: 'bold', color: '#5a5c69' }}>
-          + 18% GST.
-        </span>
-      </div>
-
-
     <form method="post" onSubmit={handleSubmit} id="firstpackageForm">
       <div className="row text-center mb-3" style={{ height: '50px', padding: '0px 0px', alignItems: 'center' }}>
         
@@ -471,7 +452,7 @@ const packagePage = () => {
             
             }}
           >
-            <span className="topay1">&#x20b9;4545</span>
+            <span className="topay1" style={{color: '#644537' }}>&#x20b9;5000</span>
           </span>
         </div>
         
@@ -479,20 +460,20 @@ const packagePage = () => {
     </div>                                     
 
         </Card.Text>
-        <div className="text-center payment-btn btn btn-primary w-100">
+        <div className="text-center payment-btn btn w-100" style={{ background: '#03A3BD', color: 'red',border:'#fff' }}>
       <button 
         className="btn btn-block btn-student-payment" 
         type="submit" 
       
       >
-        <span>Get Started Now</span>
+        <span style={{ background: '#03A3BD', color: '#fff',border:'#fff' }} >Get Started Now</span>
       </button>
     </div>
       </Card.Body>
     </Card>
       </div>
 
-
+{/* ===========================       ADOON  NEW PAckage ======================================= */}
 
       <div className="row first">
       <div className="col-lg-12">

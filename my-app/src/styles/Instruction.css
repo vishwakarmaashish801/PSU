@@ -1,0 +1,242 @@
+
+  /*general  instruction single page*/
+  .instruction h3 {
+    line-height: 4rem;
+    padding: 0 0 19px 8px;
+    font-size: inherit;
+  }
+  
+  .instruction .isquare ul li::before {
+    content: "\2022";
+    color: blue;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  .container .box-container {
+    padding: 12px;
+    border: 3px solid grey;
+    margin: 2% 0 0 0;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+  
+  .instruction-proceed {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inst-text {
+    line-height: 38px;
+    color: grey;
+    font-size: 22px;
+    margin: 0 0 0 40px;
+    font-family: serif;
+}
+ .letus_text{
+  color:#644537;
+ }
+  .list-group li {
+    padding: 10px;
+    line-height: 20px;
+  }
+  .test-start {
+    margin-top: 20px;
+  }
+  
+  /* question paper */
+  
+  .question-field {
+    width: 120px;
+  }
+  .question-intro {
+    margin-top: 0.5em;
+    font-style: italic;
+    font-weight: bold;
+    color: #644537;
+    font-size: 30px;
+    
+  }
+  
+ .intro-proceed {
+    margin-top: -0.1em;
+    font-style: italic;
+    font-weight: bold;
+    color:dimgray;
+    font-size:1.2rem;
+  }
+  
+  .general-inst {
+    font-size: 30px;
+    color:#644537;
+    font-style: italic;
+    font-weight: bolder;
+   
+    margin-left: 43px;
+  }
+  
+  
+  .btn-startTest{
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    transition: transform 0.2s, opacity 0.2s;
+    background: #644537;
+    border-bottom: 0 solid #644537;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: ease-out 0.4s;
+  }
+  
+  
+
+  .btn-startTest:hover {
+    color: #644537;
+    background-color: #ede6e2;
+    border:1px solid #644537;
+    
+  }
+  
+  .droupdown {
+    display: none;
+  }
+  .droupdown:hover {
+    display: list-item;
+  }
+  
+  .quiz-box {
+    /* background-color: chartreuse; */
+    margin: 0 0 0 0;
+  }
+  .question {
+    font-weight: 600;
+  }
+  .answers {
+    margin-bottom: 20px;
+  }
+  .answers label {
+    display: block;
+  }
+  #submit {
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #279;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  #submit:hover {
+    background-color: #38a;
+  }
+  
+  /* Question paper table start css */
+  .header-table {
+    background-color: #0f62ac;
+    color: #fff;
+    padding: 2px;
+  }
+  /* input button *
+  .option {
+    text-align: center;
+  }
+  .sr-no {
+    text-align: center;
+  }
+  
+  input[type="radio"] {
+    margin: 11px 0px 0;
+    margin-top: 1px;
+    line-height: normal;
+  }
+  /* table row color */
+  .even-tr {
+    background: #cce3de;
+  }
+  
+  .instruction ul {
+    list-style: square;
+    font-size: 1.3em;
+  }
+  li::marker {
+    color: #0f62ac;
+  }
+  
+  .desktop{
+    text-align: end;
+  }
+
+@media only screen and (max-width: 600px) {
+	
+	.container .box-container {
+		padding: 12px;
+		border: 0px solid grey;
+		margin: 8% 0 0 0;
+		/* border-top-left-radius: 60px; */
+		/* border-bottom-right-radius: 60px; */
+	}
+  .col-md-6{
+    text-align:start;
+    padding: 22px 0px;
+    
+  }
+  .desktop{
+    text-align: start;
+  }
+  .intro-proceed {
+    font-size: 15px;
+ }
+	
+  }
+  
+
+  
+  
+  /* for mobile view  */
+
+  @media only screen and (max-width: 768px) {
+  
+    .container{padding:0rem;}
+    #searchDropdown{display:none;}
+    .instruction ul {
+      list-style: disc;
+      font-size: 1.1em;
+      margin-left: -35px;
+  }
+  
+  .headers-title {
+      font-size: 16px;
+  }
+
+  .inst-text {
+    line-height:20px;
+    color: grey;
+    font-size: 14px;
+  }
+
+  }
+
+
+    /* for mobile view  S-320px */
+
+    @media only screen and (max-width:425px) {
+    
+       .general-inst {
+        font-size: medium;
+        margin-left: 0px;
+      }
+
+
+    }

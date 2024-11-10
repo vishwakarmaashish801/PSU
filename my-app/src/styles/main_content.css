@@ -9,6 +9,33 @@
     .sideNavbar-box{
         display:none;
     }
+
+    .topbar #sidebarToggleTop{
+        height: 0px;
+        width: 0;
+    /* background: radial-gradient(black, transparent); */
+    background: white;
+    color: blue;
+    font-size: 23px;
+    }
+
+    .mobileview{
+        position: fixed;
+        margin-top: 752px;
+        z-index: 1;
+        background: bisque;
+    }
     
 
+}
+
+
+
+.topbar #sidebarToggleTop{
+    height: 0px;
+    width: 0;
+/* background: radial-gradient(black, transparent); */
+background: white;
+color: blue;
+font-size: 23px;
 }
