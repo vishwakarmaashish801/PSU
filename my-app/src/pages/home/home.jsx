@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
+import { Tab, Tabs, Form, Button, Container, Row, Col } from 'react-bootstrap';
+
 import  Header  from "../../components/header/header.jsx";
 import  Footer  from "../../components/footer/footer.jsx";
 
@@ -15,9 +13,47 @@ import './home.css';
 
 function Home() {
 
-    const [name, setName] = useState("");
-    console.log(name);
-    const [key, setKey] = useState('home');
+  const [key, setKey] = useState('login');
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
+  const [registerData, setRegisterData] = useState({
+    firstName: '',
+    surname: '',
+    contactInfo: '',
+    day: '',
+    month: '',
+    year: '',
+    password: '',
+  });
+  const [error, setError] = useState('');
+
+  const handleLoginChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+  const handleRegisterChange = (e) => {
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+  };
+
+  const validateContactInfo = (contact) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10,15}$/;
+    return emailPattern.test(contact) || phonePattern.test(contact);
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    console.log('Login Data:', loginData);
+  };
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    if (!validateContactInfo(registerData.contactInfo)) {
+      setError('Please enter a valid email or phone number.');
+      return;
+    }
+    setError('');
+    console.log('Register Data:', registerData);
+  };
 
   
   return (
@@ -40,125 +76,152 @@ function Home() {
 
 
 <div className=" second row">
-  <div className="col-md-6 h-25">
-    
-  </div>
-  <div className="col-md-6">
 
-  <div className="form-right-container p-5 rounded border-2 mx-5">
-        
+  <div className="col-md-6"></div>
+  
+  <div className="col-md-6 ">
 
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-          className="mb-3"
-        >
-          
-          <div className='text-center my-2'> <h5>Login for a  PSU session!</h5></div>
-          <Tab eventKey="home" title="Login">
-            <Form>
-        
-        <div className="row">
-           <div className="col-md-12">
-           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />
-              </Form.Group>
-           </div>
-           </div>
-        
-        
-           
-           
-           <div className="row">
-    
-           <div className="col-md-12">
-              <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
+  <Container className=" mt-5 ">
+      <Row className="justify-content-center ">
+        <Col md={5} lg={10}>
+          <Tabs
+            id="login-register-tabs"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-4 d-none"
+          >
+            <Tab eventKey="login" title="Login"></Tab>
+            <Tab eventKey="register" title="Register"></Tab>
+          </Tabs>
+
+          {key === 'login' && (
+            <Form onSubmit={handleLoginSubmit} className="p-3 border rounded shadow-lg form-bg">
+              <h3 className="text-center mb-4">Login</h3>
+              <Form.Group controlId="loginUsername" className="mb-3">
+                <Form.Label>Email or Mobile Number</Form.Label>
                 <Form.Control
-                  type="password" // Correct type for password input
-                  placeholder="Enter your password"
+                  type="text"
+                  name="username"
+                  value={loginData.username}
+                  onChange={handleLoginChange}
+                  placeholder="Enter email or phone"
+                  required
                 />
               </Form.Group>
-              </div>
-        
-              <div className='my-2'>
-                <Button variant="outline-primary" size="sm" style={{width:100,padding:8}}>
-                  Sign IN!
-                </Button>{' '}
-               
-              </div>
-        
-              </div>
-        
-        
-            </Form>
-              
-          </Tab>
-    
-    
-                {/* Register form */}
-                <Tab eventKey="profile" title="Register">
-                  PSU User for Register
-                 <Form>
-        
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Enter Name : </Form.Label>
-                    <Form.Control type="text" placeholder="xyz" />
-                    </Form.Group>
-    
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Enter Phone Number : </Form.Label>
-                    <Form.Control type="number" placeholder="name@example.com" />
-                    </Form.Group>
-    
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address :</Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" />
-                    </Form.Group>
-          
-        
-        
-           
-           
-           <div className="">
-    
-         
-              <Form.Group controlId="formPassword">
+              <Form.Group controlId="loginPassword" className="mb-3">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="password" // Correct type for password input
-                  placeholder="Enter your password"
+                  type="password"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleLoginChange}
+                  placeholder="Password"
+                  required
                 />
               </Form.Group>
+              <Button type="submit" className="w-100 mb-3" variant="primary">
+                Login
+              </Button>
+              <div className="text-center mb-3">
+                <a href="#" className="text-decoration-none text-warning">Forgot Password?</a>
               </div>
-        
-              <div className='my-2'>
-                <Button variant="outline-primary" size="sm" style={{width:100,padding:8}}>
-                  Sign IN!
-                </Button>{' '}
-               
-              
-        
+              <div className="text-center">
+                <span>Don't have an account? </span>
+                <a href="#" onClick={() => setKey('register')} className="text-decoration-none text-warning">
+                  Register here
+                </a>
               </div>
-        
-        
             </Form>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-          </Tab>
-         
-        </Tabs>
-    
-        </div>
+          )}
+
+          {key === 'register' && (
+            <Form onSubmit={handleRegisterSubmit} className="p-3 border rounded shadow-lg form-bg">
+              <h3 className="text-center mb-4">Register</h3>
+
+              {error && <div className="text-danger text-center mb-3">{error}</div>}
+
+              <Form.Group controlId="registerFirstName" className="mb-2">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="Enter firstName And Surname"
+                   placeholder="Enter Firstname"
+                  value={registerData.firstName}
+                  onChange={handleRegisterChange}
+                  required
+                />
+              </Form.Group>
+             
+              <Form.Group controlId="registerContactInfo" className="mb-2">
+                <Form.Label>Email or Mobile Number</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="contactInfo"
+                  value={registerData.contactInfo}
+                  onChange={handleRegisterChange}
+                  placeholder="Enter email or phone"
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="registerDOB" className="mb-2">
+                <Form.Label>Date of Birth</Form.Label>
+                <div className="d-flex">
+                  <Form.Control
+                    type="text"
+                    name="day"
+                    placeholder="DD"
+                    value={registerData.day}
+                    onChange={handleRegisterChange}
+                    required
+                    className="me-2"
+                  />
+                  <Form.Control
+                    type="text"
+                    name="month"
+                    placeholder="MM"
+                    value={registerData.month}
+                    onChange={handleRegisterChange}
+                    required
+                    className="me-2"
+                  />
+                  <Form.Control
+                    type="text"
+                    name="year"
+                    placeholder="YYYY"
+                    value={registerData.year}
+                    onChange={handleRegisterChange}
+                    required
+                  />
+                </div>
+              </Form.Group>
+              <Form.Group controlId="registerPassword" className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                   placeholder="Enter password"
+                  value={registerData.password}
+                  onChange={handleRegisterChange}
+                  required
+                />
+              </Form.Group>
+              <Button type="submit" className="w-100 mb-3" variant="primary">
+                Register
+              </Button>
+              <div className="text-center">
+                <span>Already have an account? </span>
+                <a href="#" onClick={() => setKey('login')} className="text-decoration-none text-warning">
+                  Login here
+                </a>
+              </div>
+            </Form>
+          )}
+        </Col>
+      </Row>
+    </Container>
+
+
+  
 
   </div>
 
