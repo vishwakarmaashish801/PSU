@@ -141,11 +141,11 @@ function Home() {
               {error && <div className="text-danger text-center mb-3">{error}</div>}
 
               <Form.Group controlId="registerFirstName" className="mb-2">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>Full Name </Form.Label>
                 <Form.Control
                   type="text"
-                  name="Enter firstName And Surname"
-                   placeholder="Enter Firstname"
+                  name="username"
+                   placeholder="Enter first Name And Surname"
                   value={registerData.firstName}
                   onChange={handleRegisterChange}
                   required
