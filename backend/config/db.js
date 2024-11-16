@@ -11,7 +11,6 @@ const db =  mysql.createPool({
 })
 
 if(db) {
-    console.log("Database connected successfully");
 }
     
 module.exports = db; 
