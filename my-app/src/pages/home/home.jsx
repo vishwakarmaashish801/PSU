@@ -29,7 +29,7 @@ function Home() {
   };
 
   const handleRegisterChange = (e) => {
-    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });    
   };
 
   const handleForgotChange = (e) => {
@@ -65,6 +65,7 @@ function Home() {
     e.preventDefault();
     if (otpData.otp !== generatedOtp) {
       setError('Invalid OTP. Please try again.');
+      
       return;
     }
     setError('');
@@ -74,14 +75,47 @@ function Home() {
   };
 
   const handleRegisterSubmit = (e) => {
+    
     e.preventDefault();
-    if (!isVerified) {
-      setError('Please verify your email or phone first.');
-      setKey('otp'); // Go back to OTP verification if not verified
+    
+    if (!validateContactInfo(registerData.contactInfo)) {
+      setError('Please enter a valid email or phone number.');
       return;
     }
+    setError('');
+    const otp = Math.floor(1000 + Math.random() * 9000).toString();
+    setGeneratedOtp(otp);
+    setRegisterData({ ...registerData, contactInfo: registerData.contactInfo });
+    console.log('Generated OTP:', otp); // Simulate OTP sent
+    setSuccess('OTP has been sent to your email or phone.');
+    setKey('otp'); // Switch to OTP verification form
+    
+    if (!isVerified) {
+      // setError('Please verify your email or phone first.');
+      setKey('otp'); // Go back to OTP verification if not verified
+      //setKey('verifyphone'); // Go back to OTP verification if not verified
+      return;
+    }
+
+
+
+    if(isVerified){
+
+
+    }
     console.log('User Registered:', registerData);
+
+
+
+
+
     setSuccess('Registration Successful! Please log in.');
+
+    //Send data to server 
+  // Clear all fields after successful registration
+  
+  setIsVerified(false);
+  setOtpData('');
     setKey('login'); // Redirect to login after successful registration
   };
 
@@ -212,7 +246,56 @@ function Home() {
                           >
                             Send OTP
                           </Button>
+                         
+                          <a
+                              href="#"
+                              onClick={() => setKey('login')}
+                              className="text-decoration-none text-warning"
+                            >
+                                <span  className="btn w-25 mb-3 text-light border  bt">Cancel </span>
+                            </a>
                         </Form>
+                        
+                      )}
+
+                      {/*first verify email register */}
+                      {key === 'verifyphone' && (
+                        <Form
+                          onSubmit={handleForgotSubmit}
+                          className="p-3 border rounded shadow-lg form-bg"
+                        >
+                          <h3 className="text-center mb-4">Verify  email or phone</h3>
+                          <Form.Group
+                            controlId="forgotEmailOrPhone"
+                            className="mb-3"
+                          >
+                            <Form.Label>Email or Mobile Number</Form.Label>
+                            <Form.Control
+                              type="text"
+                              name="emailOrPhone"
+                              value={forgotData.emailOrPhone}
+                              onChange={handleForgotChange}
+                              placeholder="Enter email or phone"
+                              required
+                            />
+                          </Form.Group>
+                          <Button
+                            type="submit"
+                            className="w-100 mb-3"
+                            variant="primary"
+                          >
+                            Send OTP
+                          </Button>
+                         
+                          <a
+                              href="#"
+                              onClick={() => setKey('login')}
+                              className="text-decoration-none text-warning"
+                            >
+                                <span  className="btn w-25 mb-3 text-light border  bt">Cancel </span>
+                            </a>
+                        </Form>
+                        
                       )}
 
                       {key === 'otp' && (
@@ -239,99 +322,124 @@ function Home() {
                           >
                             Verify OTP
                           </Button>
+                          <a
+                              href="#"
+                              onClick={() => setKey('register')}
+                              className="text-decoration-none text-light btn border"
+                            >
+                               Cancel
+                            </a>
                         </Form>
                       )}
+{key === 'register' && (
+  <Form
+    onSubmit={handleRegisterSubmit}
+    className="p-3 border rounded shadow-lg form-bg"
+  >
+    <h3 className="text-center mb-4">Register</h3>
+    <Form.Group controlId="registerFirstName" className="mb-2">
+      <Form.Label>Full Name</Form.Label>
+      <Form.Control
+        type="text"
+        name="firstName"
+        placeholder="Enter first Name and Surname"
+        value={registerData.firstName}
+        onChange={handleRegisterChange}
+        required
+      />
+    </Form.Group>
 
-                      {key === 'register' && (
-                        <Form
-                          onSubmit={handleRegisterSubmit}
-                          className="p-3 border rounded shadow-lg form-bg"
-                        >
-                          <h3 className="text-center mb-4">Register</h3>
-                          <Form.Group
-                            controlId="registerFirstName"
-                            className="mb-2"
-                          >
-                            <Form.Label>Full Name </Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="firstName"
-                              placeholder="Enter first Name and Surname"
-                              value={registerData.firstName}
-                              onChange={handleRegisterChange}
-                              required
-                            />
-                          </Form.Group>
 
-                          <Form.Group
-                            controlId="registerContactInfo"
-                            className="mb-2"
-                          >
-                            <Form.Label>Email or Mobile Number</Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="contactInfo"
-                              value={registerData.contactInfo}
-                              onChange={handleRegisterChange}
-                              placeholder="Enter email or phone"
-                              disabled={isVerified}
-                              required
-                            />
-                          </Form.Group>
-                          <Form.Group controlId="registerDOB" className="mb-2">
-                            <Form.Label>Date of Birth</Form.Label>
-                            <div className="d-flex">
-                              <Form.Control
-                                type="text"
-                                name="day"
-                                placeholder="DD"
-                                value={registerData.day}
-                                onChange={handleRegisterChange}
-                                required
-                                className="me-2"
-                              />
-                              <Form.Control
-                                type="text"
-                                name="month"
-                                placeholder="MM"
-                                value={registerData.month}
-                                onChange={handleRegisterChange}
-                                required
-                                className="me-2"
-                              />
-                              <Form.Control
-                                type="text"
-                                name="year"
-                                placeholder="YYYY"
-                                value={registerData.year}
-                                onChange={handleRegisterChange}
-                                required
-                              />
-                            </div>
-                          </Form.Group>
-                          <Form.Group
-                            controlId="registerPassword"
-                            className="mb-3"
-                          >
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                              type="password"
-                              name="password"
-                              placeholder="Enter password"
-                              value={registerData.password}
-                              onChange={handleRegisterChange}
-                              required
-                            />
-                          </Form.Group>
-                          <Button
-                            type="submit"
-                            className="w-100 mb-3"
-                            variant="primary"
-                          >
-                            Register
-                          </Button>
-                        </Form>
-                      )}
+    <Form.Group controlId="registerContactInfo" className="mb-2">
+      <Form.Label>Email or Mobile Number</Form.Label>
+      <Form.Control
+        type="text"
+        name="contactInfo"
+        value={registerData.contactInfo}
+        onChange={handleRegisterChange}
+        placeholder="Enter email or phone"
+        disabled={isVerified}
+        required
+      />    
+    </Form.Group>
+
+    <Form.Group controlId="registerLevel" className="mb-3">
+      <Form.Label>Select Level</Form.Label>
+      <Form.Control
+        as="select"
+        name="level"
+        value={registerData.level || ""}
+        onChange={handleRegisterChange}
+        required
+      >
+        <option value="" disabled>
+          Select Level
+        </option>
+        <option value="Higher">Higher-level management roles</option>
+        <option value="Middle">Mid-Management and supervisory roles</option>
+        <option value="Entry"> Entry-level and supporting staff</option>
+      </Form.Control>
+    </Form.Group>
+
+    <Form.Group controlId="registerDOB" className="mb-2">
+      <Form.Label>Date of Birth</Form.Label>
+      <div className="d-flex">
+        <Form.Control
+          type="text"
+          name="day"
+          placeholder="DD"
+          value={registerData.day}
+          onChange={handleRegisterChange}
+          required
+          className="me-2"
+        />
+        <Form.Control
+          type="text"
+          name="month"
+          placeholder="MM"
+          value={registerData.month}
+          onChange={handleRegisterChange}
+          required
+          className="me-2"
+        />
+        <Form.Control
+          type="text"
+          name="year"
+          placeholder="YYYY"
+          value={registerData.year}
+          onChange={handleRegisterChange}
+          required
+        />
+      </div>
+    </Form.Group>
+
+    <Form.Group controlId="registerPassword" className="mb-3">
+      <Form.Label>Password</Form.Label>
+      <Form.Control
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        value={registerData.password}
+        onChange={handleRegisterChange}
+        required
+      />
+    </Form.Group>
+    <Button type="submit" className="w-100 mb-3" variant="primary">
+      Register
+    </Button>
+    <span>Already have an account? </span>
+    <a
+      href="#"
+      onClick={() => setKey('login')}
+      className="text-decoration-none text-warning"
+    >
+      Login
+    </a>
+  </Form>
+)}
+
+
+
                     </Col>
                   </Row>
                 </Container>
